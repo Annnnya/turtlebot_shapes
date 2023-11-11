@@ -22,8 +22,8 @@ class ShapeMotionController(Node):
             try:
                 radius = float(input('Enter Circle Radius: '))
                 speed = float(input('Enter Circle Speed: '))
-                direction = int(input('Enter Circle Direction (1 for clockwise, 0 for counterclockwise): '))
-                return Circle(radius=radius, speed=speed, direction=direction)
+                direction = int(input('Enter Circle Direction (0 for clockwise, 1 for counterclockwise): '))
+                return Circle(radius=radius, speed=speed, direction=bool(direction))
             except ValueError:
                 print("Invalid input. Please enter numeric values.")
 
@@ -33,8 +33,8 @@ class ShapeMotionController(Node):
                 num_vertices = int(input('Enter Number of Vertices: '))
                 side_length = float(input('Enter Side Length: '))
                 speed = float(input('Enter Polygon Speed: '))
-                direction = int(input('Enter Polygon Direction (1 for clockwise, 0 for counterclockwise): '))
-                return Polygon(num_vertices=num_vertices, side_length=side_length, speed=speed, direction=direction)
+                direction = int(input('Enter Polygon Direction (0 for clockwise, 1 for counterclockwise): '))
+                return Polygon(num_vertices=num_vertices, side_length=side_length, speed=speed, direction=bool(direction))
             except ValueError:
                 print("Invalid input. Please enter numeric values.")
 
@@ -99,14 +99,14 @@ class ShapeMotionController(Node):
             elif choice == '3':
                 radius = float(input('Enter Circle Radius: '))
                 speed = float(input('Enter Circle Speed: '))
-                direction = int(input('Enter Circle Direction (1 for clockwise, 0 for counterclockwise): '))
+                direction = int(input('Enter Circle Direction (0 for clockwise, 1 for counterclockwise): '))
                 self.do_circle_action(radius, speed, direction)
 
             elif choice == '4':
                 num_vertices = int(input('Enter Number of Vertices: '))
                 side_length = float(input('Enter Side Length: '))
                 speed = float(input('Enter Polygon Speed: '))
-                direction = int(input('Enter Polygon Direction (1 for clockwise, 0 for counterclockwise): '))
+                direction = int(input('Enter Polygon Direction (0 for clockwise, 1 for counterclockwise): '))
                 self.do_polygon_action(num_vertices, side_length, speed, direction)
 
             elif choice == '5':

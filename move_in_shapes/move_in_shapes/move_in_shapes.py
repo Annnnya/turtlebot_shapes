@@ -11,7 +11,11 @@ class ShapeMotion(Node):
 
     def __init__(self):
         super().__init__('shape_publisher')
-        self.publisher_ = self.create_publisher(Twist, 'turtle1/cmd_vel', 10)
+
+        self.declare_parameter('namespace', "")
+        namespace = self.get_parameter('namespace').value
+
+        self.publisher_ = self.create_publisher(Twist, namespace+'/cmd_vel', 10)
         self.timer_period = 0.05
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
         self.move_count = 0
